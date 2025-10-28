@@ -92,7 +92,16 @@ function App() {
             <span className="glow-orange">🎃</span>
           </p>
           <p className="footer-subtext">
-            Made with 💜 for Halloween {new Date().getFullYear()}
+            Created with 💜 by{' '}
+            <a 
+              href="https://github.com/ailynux" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-link glow-purple"
+            >
+              Ailyn
+            </a>
+            {' '}for Halloween {new Date().getFullYear()}
           </p>
         </footer>
       </div>

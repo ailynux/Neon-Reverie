@@ -154,6 +154,37 @@
   font-family: var(--font-mono);
 }
 
+.footer-link {
+  color: var(--neon-purple);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0 2px;
+}
+
+.footer-link:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.footer-link:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon-cyan);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.footer-link:hover:after {
+  width: 100%;
+}
+
 /* Particle Effects */
 .particles {
   position: fixed;
