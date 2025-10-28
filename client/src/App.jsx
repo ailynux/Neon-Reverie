@@ -6,13 +6,10 @@ import FlyingBats from './components/FlyingBats';
 import CursorTrail from './components/CursorTrail';
 import MatrixRain from './components/MatrixRain';
 import SpookyFacts from './components/SpookyFacts';
-import EffectsToggle from './components/EffectsToggle';
 import SpiderWebDecorations from './components/SpiderWeb';
 import BouncingPumpkins from './components/BouncingPumpkins';
-import ThemeSwitcher from './components/ThemeSwitcher';
-import SpiritStatistics from './components/SpiritStatistics';
 import AchievementNotification from './components/AchievementNotification';
-import AchievementsPanel from './components/AchievementsPanel';
+import ControlBentoBox from './components/ControlBentoBox';
 import { useTheme } from './hooks/useTheme';
 import { useStatistics } from './hooks/useStatistics';
 import { useAchievements } from './hooks/useAchievements';
@@ -88,17 +85,16 @@ function App() {
       {/* Scanline effect for retro terminal feel */}
       <div className="scanline"></div>
       
-      {/* Effects Toggle Panel */}
-      <EffectsToggle effects={effects} setEffects={setEffects} />
-      
-      {/* Theme Switcher */}
-      <ThemeSwitcher currentTheme={currentTheme} onThemeChange={changeTheme} />
-      
-      {/* Spirit Statistics */}
-      <SpiritStatistics spirits={encounteredSpirits} />
-      
-      {/* Achievements Panel */}
-      <AchievementsPanel unlockedAchievements={unlockedAchievements} spirits={encounteredSpirits} />
+      {/* Control Bento Box - All Controls in One Place! */}
+      <ControlBentoBox 
+        effects={effects}
+        setEffects={setEffects}
+        currentTheme={currentTheme}
+        changeTheme={changeTheme}
+        spirits={encounteredSpirits}
+        unlockedAchievements={unlockedAchievements}
+        stats={stats}
+      />
       
       {/* Conditional Effects */}
       {effects.matrixRain && <MatrixRain />}

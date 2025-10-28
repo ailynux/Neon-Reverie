@@ -1,0 +1,176 @@
+.bento-box-container {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  pointer-events: none;
+  max-height: calc(100vh - 100px);
+}
+
+.bento-box-container > * {
+  pointer-events: all;
+}
+
+/* Toggle Button */
+.bento-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(176, 38, 255, 0.9), rgba(138, 43, 226, 0.9));
+  border: 2px solid var(--neon-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 15px rgba(176, 38, 255, 0.5),
+    0 0 30px rgba(176, 38, 255, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.bento-toggle:hover {
+  box-shadow: 
+    0 6px 25px rgba(176, 38, 255, 0.7),
+    0 0 50px rgba(176, 38, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(10, 10, 15, 0.9);
+  padding: 12px;
+  border-radius: 16px;
+  border: 2px solid rgba(176, 38, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  max-height: calc(100vh - 120px);
+  overflow: visible;
+}
+
+
+.bento-item {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Override individual component positioning */
+.bento-item .effects-toggle-container,
+.bento-item .theme-switcher-container,
+.bento-item .stats-container,
+.bento-item .achievements-container,
+.bento-item .share-container {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  cursor: pointer !important;
+  transform: none !important;
+}
+
+/* Disable dragging inside bento box */
+.bento-item .effects-toggle-container *,
+.bento-item .theme-switcher-container *,
+.bento-item .stats-container *,
+.bento-item .achievements-container *,
+.bento-item .share-container * {
+  cursor: pointer !important;
+}
+
+/* Make sure FABs stay in place */
+.bento-item > div {
+  position: relative !important;
+}
+
+/* Adjust panel positioning when inside bento */
+.bento-item .toggle-panel,
+.bento-item .theme-panel,
+.bento-item .stats-panel,
+.bento-item .achievements-panel,
+.bento-item .share-panel {
+  position: fixed !important;
+  left: 150px !important;
+  top: auto !important;
+  transform: none !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 10000 !important;
+}
+
+/* Fix achievements panel height when inside bento */
+.bento-item .achievements-panel {
+  max-height: 80vh !important;
+  top: 10vh !important;
+  bottom: 10vh !important;
+}
+
+/* Ensure achievements list scrolls properly */
+.bento-item .achievements-list {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  min-height: 0 !important;
+}
+
+/* Same fix for stats and share panels */
+.bento-item .stats-panel,
+.bento-item .share-panel {
+  max-height: 80vh !important;
+  top: 10vh !important;
+  overflow-y: auto !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .bento-box-container {
+    top: 60px;
+    left: 10px;
+    max-height: calc(100vh - 80px);
+  }
+
+  .bento-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .bento-grid {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  /* Stack panels differently on mobile */
+  .bento-item .toggle-panel,
+  .bento-item .theme-panel,
+  .bento-item .stats-panel,
+  .bento-item .achievements-panel,
+  .bento-item .share-panel {
+    left: 110px !important;
+    max-width: calc(100vw - 130px);
+  }
+}
+
+/* Ensure panels can overflow the bento box horizontally */
+.bento-item {
+  overflow: visible !important;
+  flex-shrink: 0;
+}
+
+/* Ensure FABs are clickable */
+.bento-item button {
+  cursor: pointer !important;
+  z-index: 1001;
+}
+
