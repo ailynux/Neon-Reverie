@@ -1,0 +1,81 @@
+.spider-web {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.spider-web.top-left {
+  top: 0;
+  left: 0;
+}
+
+.spider-web.top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.web-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px rgba(176, 38, 255, 0.4));
+}
+
+.web-strands {
+  animation: web-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes web-shimmer {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.spider {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+}
+
+.spider-strand {
+  position: absolute;
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(
+    to bottom,
+    rgba(176, 38, 255, 0.6),
+    transparent
+  );
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.spider-eye {
+  animation: spider-blink 3s ease-in-out infinite;
+}
+
+@keyframes spider-blink {
+  0%, 95%, 100% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 768px) {
+  .spider-web {
+    width: 120px;
+    height: 120px;
+  }
+}
+

@@ -1,17 +1,70 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CountdownTimer from './components/CountdownTimer';
 import SummonSpirits from './components/SummonSpirits';
 import GhostContainer from './components/FloatingGhost';
+import FlyingBats from './components/FlyingBats';
+import CursorTrail from './components/CursorTrail';
+import MatrixRain from './components/MatrixRain';
+import SpookyFacts from './components/SpookyFacts';
+import EffectsToggle from './components/EffectsToggle';
+import SpiderWebDecorations from './components/SpiderWeb';
+import BouncingPumpkins from './components/BouncingPumpkins';
 import './App.css';
 
 function App() {
+  const [effects, setEffects] = useState({
+    cursorTrail: true,
+    matrixRain: false,
+    bats: true,
+    sound: true
+  });
+
+  const [shake, setShake] = useState(false);
+
+  // Load saved preferences
+  useEffect(() => {
+    const saved = localStorage.getItem('effectsPreferences');
+    if (saved) {
+      try {
+        setEffects(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to load preferences:', e);
+      }
+    }
+  }, []);
+
+  // Save preferences
+  useEffect(() => {
+    localStorage.setItem('effectsPreferences', JSON.stringify(effects));
+  }, [effects]);
+
+  // Screen shake effect
+  const triggerShake = () => {
+    setShake(true);
+    setTimeout(() => setShake(false), 500);
+  };
+
   return (
-    <div className="app">
+    <div className={`app ${shake ? 'shake' : ''}`}>
       {/* Scanline effect for retro terminal feel */}
       <div className="scanline"></div>
       
+      {/* Effects Toggle Panel */}
+      <EffectsToggle effects={effects} setEffects={setEffects} />
+      
+      {/* Conditional Effects */}
+      {effects.matrixRain && <MatrixRain />}
+      {effects.cursorTrail && <CursorTrail />}
+      {effects.bats && <FlyingBats />}
+      
       {/* Floating ghosts in background */}
       <GhostContainer />
+      
+      {/* Spider webs decoration */}
+      <SpiderWebDecorations />
+      
+      {/* Bouncing pumpkins */}
+      <BouncingPumpkins />
       
       {/* Main content */}
       <div className="content">
@@ -28,7 +81,8 @@ function App() {
 
         <main className="app-main">
           <CountdownTimer />
-          <SummonSpirits />
+          <SpookyFacts />
+          <SummonSpirits soundEnabled={effects.sound} onSummon={triggerShake} />
         </main>
 
         <footer className="app-footer">

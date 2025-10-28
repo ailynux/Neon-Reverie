@@ -41,6 +41,8 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
 ### 🔮 **Summon Spirits**
 - Click the **"Summon Spirits"** button to fetch random omens from the API
 - Each omen appears with **glowing neon animations**
+- **Screen shake effect** when summoning spirits for extra drama!
+- **Spooky sound effects** using Web Audio API (toggleable)
 - Omens include messages like:
   - *"💀 The terminal whispers your name..."*
   - *"🎃 The pumpkin glows with hidden bugs."*
@@ -52,14 +54,33 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
 - Track how many spirits you've discovered
 - Clear your collection to start fresh
 
+### 📚 **Spooky Facts Ticker**
+- Rotating carousel of **Halloween and tech facts**
+- Auto-advances every 8 seconds
+- Includes fun trivia about coding history and Halloween traditions
+- Beautiful animated transitions
+
+### ⚙️ **Interactive Effects Toggle Panel**
+- **Toggle effects on/off** in real-time:
+  - ✨ **Cursor Trail** - Glowing neon particles follow your mouse
+  - 🌧️ **Matrix Rain** - Falling code effect with Halloween characters
+  - 🦇 **Flying Bats** - Animated bats crossing the screen
+  - 🔊 **Sound Effects** - Toggle audio on/off
+- Preferences **saved to localStorage**
+- Sleek control panel in the top-left corner
+
 ### 🎨 **Neon Cyber-Horror Aesthetic**
 - **Creepster** font for spooky headers
 - **Space Mono** monospace font for that terminal feel
 - Glowing text effects in **purple, orange, and cyan**
-- Floating ghost SVG animations
+- **Floating ghost SVG animations** drifting across the screen
+- **Flying bats** with wing-flapping animations
+- **Spider webs** with crawling spiders in corners
+- **Bouncing pumpkins** (clickable!) in the corner that glow when clicked
 - Scanline effects for retro CRT monitor vibes
 - Particle effects floating across the screen
 - Glitch effects on the title
+- **Screen shake** animation on spirit summoning
 
 ---
 
@@ -68,9 +89,11 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
 ### **Frontend** (`/client`)
 - ⚛️ **React 18.2** - Modern UI library
 - ⚡ **Vite 5.0** - Lightning-fast build tool
-- 🎬 **Framer Motion 10** - Smooth animations
-- 🎨 **CSS3** - Custom neon styling with animations
-- 💾 **localStorage** - Client-side spirit collection
+- 🎬 **Framer Motion 10** - Smooth animations & interactive effects
+- 🎨 **CSS3** - Custom neon styling with keyframe animations
+- 💾 **localStorage** - Client-side spirit collection & preferences
+- 🔊 **Web Audio API** - Synthesized sound effects
+- 🎨 **Canvas API** - Matrix rain effect rendering
 
 ### **Backend** (`/server`)
 - 🔷 **C# .NET 8** - Web API
@@ -135,9 +158,14 @@ Navigate to **http://localhost:5173** and experience the haunted dashboard! 👻
 ## 🎮 Usage
 
 1. **Watch the Countdown** - See how much time remains until Halloween
-2. **Summon Spirits** - Click the glowing button to fetch spooky omens
-3. **Collect Spirits** - View all the omens you've encountered
-4. **Enjoy the Vibes** - Watch the floating ghosts and neon effects
+2. **Read Spooky Facts** - Learn fun Halloween and tech trivia
+3. **Summon Spirits** - Click the glowing button to fetch spooky omens (with screen shake!)
+4. **Collect Spirits** - View all the omens you've encountered
+5. **Toggle Effects** - Customize your experience with the effects panel
+6. **Click the Pumpkins** - Interactive bouncing pumpkins that glow and make sounds!
+7. **Watch the Animations** - Floating ghosts, flying bats, crawling spiders, and more
+8. **Enable Matrix Rain** - Toggle the falling code effect for extra cyberpunk vibes
+9. **Enjoy the Cursor Trail** - Watch glowing particles follow your mouse
 
 ---
 
@@ -162,48 +190,75 @@ Navigate to **http://localhost:5173** and experience the haunted dashboard! 👻
 
 ```
 Neon-Reverie/
-├── client/                    # React Frontend
-│   ├── public/               # Static assets
+├── client/                         # React Frontend
+│   ├── public/                    # Static assets
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── CountdownTimer.jsx      # Halloween countdown
+│   │   │   ├── CountdownTimer.jsx      # Halloween countdown with themes
 │   │   │   ├── CountdownTimer.css
-│   │   │   ├── SummonSpirits.jsx       # Spirit summoning UI
+│   │   │   ├── SummonSpirits.jsx       # Spirit summoning with sounds
 │   │   │   ├── SummonSpirits.css
-│   │   │   ├── FloatingGhost.jsx       # Animated ghosts
-│   │   │   └── FloatingGhost.css
-│   │   ├── App.jsx           # Main app component
-│   │   ├── App.css           # App-level styling
-│   │   ├── main.jsx          # React entry point
-│   │   └── index.css         # Global styles
-│   ├── index.html            # HTML template
-│   ├── vite.config.js        # Vite configuration
-│   └── package.json          # Dependencies
+│   │   │   ├── FloatingGhost.jsx       # Animated floating ghosts
+│   │   │   ├── FloatingGhost.css
+│   │   │   ├── FlyingBats.jsx          # Animated flying bats
+│   │   │   ├── FlyingBats.css
+│   │   │   ├── CursorTrail.jsx         # Neon cursor trail effect
+│   │   │   ├── CursorTrail.css
+│   │   │   ├── MatrixRain.jsx          # Falling code effect
+│   │   │   ├── MatrixRain.css
+│   │   │   ├── SpookyFacts.jsx         # Rotating facts carousel
+│   │   │   ├── SpookyFacts.css
+│   │   │   ├── SpiderWeb.jsx           # Spider web decorations
+│   │   │   ├── SpiderWeb.css
+│   │   │   ├── BouncingPumpkins.jsx    # Interactive pumpkins
+│   │   │   ├── BouncingPumpkins.css
+│   │   │   ├── EffectsToggle.jsx       # Effects control panel
+│   │   │   └── EffectsToggle.css
+│   │   ├── App.jsx                # Main app with state management
+│   │   ├── App.css                # App-level styling & animations
+│   │   ├── main.jsx               # React entry point
+│   │   └── index.css              # Global styles & CSS variables
+│   ├── index.html                 # HTML template
+│   ├── vite.config.js             # Vite configuration
+│   └── package.json               # Dependencies
 │
-└── server/                   # C# .NET API
+└── server/                        # C# .NET API
     ├── Controllers/
-    │   └── OmensController.cs    # API endpoints
+    │   └── OmensController.cs     # API endpoints for omens
     ├── Properties/
-    │   └── launchSettings.json   # Launch configuration
-    ├── Program.cs            # API setup & CORS
-    ├── server.csproj         # Project file
-    └── appsettings.json      # Configuration
+    │   └── launchSettings.json    # Launch configuration
+    ├── Program.cs                 # API setup & CORS
+    ├── server.csproj              # Project file
+    └── appsettings.json           # Configuration
 ```
 
 ---
 
-## 🎯 Optional Enhancements
+## 🎯 What's New in This Version
 
-Want to take it further? Try adding:
+### ✅ Recently Added Features:
+- ✨ **Cursor Trail Effect** - Glowing neon particles follow your mouse
+- 🌧️ **Matrix Rain** - Toggle falling code effect with Halloween characters
+- 🦇 **Flying Bats** - Animated bats with wing-flapping
+- 🕷️ **Spider Webs** - Corner decorations with animated spiders
+- 🎃 **Bouncing Pumpkins** - Interactive clickable pumpkins with glow effects
+- 📚 **Spooky Facts Ticker** - Rotating carousel of fun facts
+- ⚙️ **Effects Toggle Panel** - Control all visual effects
+- 🔊 **Sound Effects** - Synthesized audio using Web Audio API
+- 📳 **Screen Shake** - Dramatic shake when summoning spirits
+- 💾 **Persistent Preferences** - All settings saved to localStorage
 
-- 🎵 **Ambient Soundtrack** - Looping spooky music (toggleable)
-- 🎭 **Console Mode** - Fake hacker terminal with ASCII art
+### 🎯 Future Enhancement Ideas:
+- 🎵 **Background Music** - Looping ambient Halloween soundtrack
+- 🎭 **Console Mode** - Retro terminal interface with ASCII art
 - 🌐 **Deployment** - Host on Vercel (frontend) + Azure/Render (backend)
-- 📱 **PWA Support** - Make it installable
-- 🎨 **Theme Switcher** - Multiple color schemes
-- 🔊 **Sound Effects** - Spooky sounds when summoning spirits
-- 📊 **Spirit Statistics** - Track most common omens
-- 🏆 **Achievements** - Unlock badges for collecting spirits
+- 📱 **PWA Support** - Make it installable as a progressive web app
+- 🎨 **Color Theme Switcher** - Alternative color schemes
+- 📊 **Spirit Statistics** - Charts showing most common omens
+- 🏆 **Achievements System** - Unlock badges for collecting spirits
+- 🎮 **Mini Games** - Pumpkin carving, ghost catching, etc.
+- 🌙 **Day/Night Cycle** - Dynamic lighting based on time
+- 💬 **Share Feature** - Share your spirit collection on social media
 
 ---
 

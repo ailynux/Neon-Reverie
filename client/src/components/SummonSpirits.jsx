@@ -4,7 +4,32 @@ import './SummonSpirits.css';
 
 const API_URL = 'http://localhost:5199/api/omens';
 
-const SummonSpirits = () => {
+// Sound effects using Web Audio API
+const playSound = (frequency, duration, enabled) => {
+  if (!enabled) return;
+  
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = frequency;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + duration);
+  } catch (e) {
+    console.warn('Audio not supported:', e);
+  }
+};
+
+const SummonSpirits = ({ soundEnabled = true, onSummon }) => {
   const [currentOmen, setCurrentOmen] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [encounteredSpirits, setEncounteredSpirits] = useState([]);
@@ -35,6 +60,13 @@ const SummonSpirits = () => {
     setError('');
     setCurrentOmen('');
 
+    // Play summoning sound
+    playSound(200, 0.3, soundEnabled);
+    setTimeout(() => playSound(400, 0.2, soundEnabled), 200);
+    
+    // Trigger shake effect
+    if (onSummon) onSummon();
+
     try {
       const response = await fetch(`${API_URL}/random`);
       
@@ -47,6 +79,10 @@ const SummonSpirits = () => {
       
       setCurrentOmen(newOmen);
 
+      // Play success sound
+      playSound(600, 0.3, soundEnabled);
+      setTimeout(() => playSound(800, 0.2, soundEnabled), 150);
+
       // Add to collection if not already there
       if (!encounteredSpirits.includes(newOmen)) {
         setEncounteredSpirits(prev => [...prev, newOmen]);
@@ -54,6 +90,9 @@ const SummonSpirits = () => {
     } catch (err) {
       console.error('Error summoning spirit:', err);
       setError('⚠️ The spirits are not responding. Make sure the API is running on http://localhost:5199');
+      
+      // Play error sound
+      playSound(100, 0.5, soundEnabled);
     } finally {
       setIsLoading(false);
     }

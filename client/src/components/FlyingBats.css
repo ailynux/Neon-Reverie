@@ -1,0 +1,44 @@
+.bats-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.flying-bat {
+  position: absolute;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.bat-wing {
+  animation: wing-flap 0.3s ease-in-out infinite;
+}
+
+.bat-eye {
+  animation: eye-glow 1s ease-in-out infinite;
+}
+
+@keyframes wing-flap {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.7);
+  }
+}
+
+@keyframes eye-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
