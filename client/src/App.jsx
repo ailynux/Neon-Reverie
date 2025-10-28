@@ -9,9 +9,13 @@ import SpookyFacts from './components/SpookyFacts';
 import EffectsToggle from './components/EffectsToggle';
 import SpiderWebDecorations from './components/SpiderWeb';
 import BouncingPumpkins from './components/BouncingPumpkins';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import { useTheme } from './hooks/useTheme';
 import './App.css';
 
 function App() {
+  const { currentTheme, changeTheme } = useTheme();
+  
   const [effects, setEffects] = useState({
     cursorTrail: true,
     matrixRain: false,
@@ -51,6 +55,9 @@ function App() {
       
       {/* Effects Toggle Panel */}
       <EffectsToggle effects={effects} setEffects={setEffects} />
+      
+      {/* Theme Switcher */}
+      <ThemeSwitcher currentTheme={currentTheme} onThemeChange={changeTheme} />
       
       {/* Conditional Effects */}
       {effects.matrixRain && <MatrixRain />}
