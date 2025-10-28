@@ -10,6 +10,7 @@ import EffectsToggle from './components/EffectsToggle';
 import SpiderWebDecorations from './components/SpiderWeb';
 import BouncingPumpkins from './components/BouncingPumpkins';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import SpiritStatistics from './components/SpiritStatistics';
 import { useTheme } from './hooks/useTheme';
 import './App.css';
 
@@ -24,6 +25,12 @@ function App() {
   });
 
   const [shake, setShake] = useState(false);
+  
+  // Track encountered spirits for statistics
+  const [encounteredSpirits, setEncounteredSpirits] = useState(() => {
+    const saved = localStorage.getItem('encounteredSpirits');
+    return saved ? JSON.parse(saved) : [];
+  });
 
   // Load saved preferences
   useEffect(() => {
@@ -41,6 +48,21 @@ function App() {
   useEffect(() => {
     localStorage.setItem('effectsPreferences', JSON.stringify(effects));
   }, [effects]);
+  
+  // Listen for changes to encountered spirits
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem('encounteredSpirits');
+      if (saved) {
+        setEncounteredSpirits(JSON.parse(saved));
+      }
+    };
+    
+    // Check every second for updates
+    const interval = setInterval(handleStorageChange, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   // Screen shake effect
   const triggerShake = () => {
@@ -58,6 +80,9 @@ function App() {
       
       {/* Theme Switcher */}
       <ThemeSwitcher currentTheme={currentTheme} onThemeChange={changeTheme} />
+      
+      {/* Spirit Statistics */}
+      <SpiritStatistics spirits={encounteredSpirits} />
       
       {/* Conditional Effects */}
       {effects.matrixRain && <MatrixRain />}
