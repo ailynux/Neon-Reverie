@@ -60,6 +60,9 @@ const SummonSpirits = ({ soundEnabled = true, onSummon }) => {
     setError('');
     setCurrentOmen('');
 
+    // Track summon time for achievements
+    localStorage.setItem('lastSummonTime', Date.now().toString());
+
     // Play summoning sound
     playSound(200, 0.3, soundEnabled);
     setTimeout(() => playSound(400, 0.2, soundEnabled), 200);

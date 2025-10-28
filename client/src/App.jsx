@@ -11,7 +11,11 @@ import SpiderWebDecorations from './components/SpiderWeb';
 import BouncingPumpkins from './components/BouncingPumpkins';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import SpiritStatistics from './components/SpiritStatistics';
+import AchievementNotification from './components/AchievementNotification';
+import AchievementsPanel from './components/AchievementsPanel';
 import { useTheme } from './hooks/useTheme';
+import { useStatistics } from './hooks/useStatistics';
+import { useAchievements } from './hooks/useAchievements';
 import './App.css';
 
 function App() {
@@ -31,6 +35,12 @@ function App() {
     const saved = localStorage.getItem('encounteredSpirits');
     return saved ? JSON.parse(saved) : [];
   });
+  
+  // Get statistics
+  const stats = useStatistics(encounteredSpirits);
+  
+  // Get achievements
+  const { unlockedAchievements, newlyUnlocked, dismissNotification } = useAchievements(encounteredSpirits, stats);
 
   // Load saved preferences
   useEffect(() => {
@@ -72,6 +82,9 @@ function App() {
 
   return (
     <div className={`app ${shake ? 'shake' : ''}`}>
+      {/* Achievement Notification */}
+      <AchievementNotification achievement={newlyUnlocked} onDismiss={dismissNotification} />
+      
       {/* Scanline effect for retro terminal feel */}
       <div className="scanline"></div>
       
@@ -83,6 +96,9 @@ function App() {
       
       {/* Spirit Statistics */}
       <SpiritStatistics spirits={encounteredSpirits} />
+      
+      {/* Achievements Panel */}
+      <AchievementsPanel unlockedAchievements={unlockedAchievements} spirits={encounteredSpirits} />
       
       {/* Conditional Effects */}
       {effects.matrixRain && <MatrixRain />}

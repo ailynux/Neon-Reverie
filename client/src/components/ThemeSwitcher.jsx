@@ -10,6 +10,13 @@ const ThemeSwitcher = ({ currentTheme, onThemeChange }) => {
   const handleThemeSelect = (themeId) => {
     onThemeChange(themeId);
     setIsOpen(false);
+    
+    // Track tried themes for achievements
+    const triedThemes = JSON.parse(localStorage.getItem('triedThemes') || '[]');
+    if (!triedThemes.includes(themeId)) {
+      triedThemes.push(themeId);
+      localStorage.setItem('triedThemes', JSON.stringify(triedThemes));
+    }
   };
 
   return (

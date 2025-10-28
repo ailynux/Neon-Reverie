@@ -101,6 +101,10 @@ const BouncingPumpkins = () => {
   const handlePumpkinClick = () => {
     setClickCount(prev => prev + 1);
     
+    // Track pumpkin clicks for achievements
+    const currentClicks = parseInt(localStorage.getItem('pumpkinClicks') || '0');
+    localStorage.setItem('pumpkinClicks', (currentClicks + 1).toString());
+    
     // Play a fun sound
     if (window.AudioContext || window.webkitAudioContext) {
       try {
