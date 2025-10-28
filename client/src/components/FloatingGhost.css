@@ -1,0 +1,56 @@
+.ghost-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-ghost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  filter: drop-shadow(0 0 20px rgba(176, 38, 255, 0.6));
+}
+
+.floating-ghost:nth-child(2) {
+  left: 50%;
+}
+
+.floating-ghost:nth-child(3) {
+  left: 80%;
+}
+
+.ghost-body {
+  filter: blur(1px);
+}
+
+.ghost-eye {
+  animation: blink 4s infinite;
+}
+
+@keyframes blink {
+  0%, 48%, 52%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.ghost-mouth {
+  animation: float-mouth 2s ease-in-out infinite;
+}
+
+@keyframes float-mouth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+

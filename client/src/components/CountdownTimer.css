@@ -1,0 +1,133 @@
+.countdown-container {
+  width: 100%;
+  padding: 3rem 2rem;
+  transition: background 1s ease;
+  position: relative;
+}
+
+/* Dynamic Background Themes */
+.theme-fall {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b00 100%);
+}
+
+.theme-twilight {
+  background: linear-gradient(135deg, #1a1a2e 0%, #4a1942 50%, #2d1b00 100%);
+}
+
+.theme-dusk {
+  background: linear-gradient(135deg, #0a0a0f 0%, #2d004a 50%, #4a0000 100%);
+}
+
+.theme-midnight {
+  background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #330000 100%);
+  animation: pulse-bg 3s ease-in-out infinite;
+}
+
+@keyframes pulse-bg {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+.countdown-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.countdown-title {
+  font-family: var(--font-creepy);
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 3rem;
+  letter-spacing: 0.1em;
+  color: var(--neon-orange);
+}
+
+.time-display {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.time-unit {
+  background: rgba(26, 26, 46, 0.8);
+  border: 2px solid var(--neon-purple);
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  min-width: 150px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.time-unit:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: var(--neon-orange);
+}
+
+.time-value {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: bold;
+  font-family: var(--font-mono);
+  color: var(--neon-purple);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.time-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.theme-indicator {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .countdown-container {
+    padding: 2rem 1rem;
+  }
+
+  .time-display {
+    gap: 1rem;
+  }
+
+  .time-unit {
+    min-width: 120px;
+    padding: 1.5rem 1rem;
+  }
+
+  .time-value {
+    font-size: 2.5rem;
+  }
+
+  .theme-indicator {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-unit {
+    min-width: 100px;
+    padding: 1rem 0.75rem;
+  }
+
+  .time-value {
+    font-size: 2rem;
+  }
+
+  .time-label {
+    font-size: 0.75rem;
+  }
+}
+
