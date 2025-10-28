@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './SummonSpirits.css';
+import '../styles/components/SummonSpirits.css';
 
 const API_URL = 'http://localhost:5199/api/omens';
 

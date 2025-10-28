@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import './BouncingPumpkins.css';
+import '../styles/components/BouncingPumpkins.css';
 
 const Pumpkin = ({ delay, onClick }) => {
   const [isGlowing, setIsGlowing] = useState(false);

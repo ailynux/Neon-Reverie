@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './FloatingGhost.css';
+import '../styles/components/FloatingGhost.css';
 
 const FloatingGhost = ({ delay = 0 }) => {
   return (

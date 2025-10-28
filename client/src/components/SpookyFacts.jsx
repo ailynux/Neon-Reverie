@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './SpookyFacts.css';
+import '../styles/components/SpookyFacts.css';
 
 const facts = [
   "💀 The first computer bug was an actual moth found in 1947",

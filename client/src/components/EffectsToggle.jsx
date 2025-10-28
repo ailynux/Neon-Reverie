@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './EffectsToggle.css';
+import '../styles/components/EffectsToggle.css';
 
 const EffectsToggle = ({ effects, setEffects }) => {
   const [isExpanded, setIsExpanded] = useState(false);

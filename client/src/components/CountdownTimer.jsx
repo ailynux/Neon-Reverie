@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './CountdownTimer.css';
+import '../styles/components/CountdownTimer.css';
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({

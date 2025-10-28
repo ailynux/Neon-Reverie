@@ -1,0 +1,74 @@
+/* ========================================
+   NEON REVERIE - CSS VARIABLES
+   Centralized design tokens for consistency
+   ======================================== */
+
+:root {
+  /* === NEON COLORS === */
+  --neon-purple: #b026ff;
+  --neon-orange: #ff6b35;
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff10f0;
+  
+  /* === SOFT COLORS (for readability) === */
+  --soft-purple: #c084fc;
+  --soft-orange: #ff9d6b;
+  --soft-cyan: #7dd3fc;
+  
+  /* === BACKGROUND COLORS === */
+  --bg-darkest: #0a0a0f;
+  --bg-dark: #13131a;
+  --bg-medium: #1a1a2e;
+  --bg-light: #2d2d4a;
+  
+  /* === TEXT COLORS === */
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0b0;
+  --text-dim: #606070;
+  
+  /* === FONTS === */
+  --font-creepy: 'Creepster', cursive;
+  --font-mono: 'Space Mono', monospace;
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* === SPACING === */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* === BORDER RADIUS === */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+  --radius-full: 9999px;
+  
+  /* === SHADOWS === */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.9);
+  
+  /* === GLOW EFFECTS === */
+  --glow-purple: 0 0 20px var(--neon-purple);
+  --glow-orange: 0 0 20px var(--neon-orange);
+  --glow-cyan: 0 0 20px var(--neon-cyan);
+  
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* === Z-INDEX LAYERS === */
+  --z-background: 1;
+  --z-content: 10;
+  --z-effects: 50;
+  --z-decorations: 100;
+  --z-floating: 500;
+  --z-controls: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+}
+

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './FlyingBats.css';
+import '../styles/components/FlyingBats.css';
 
 const Bat = ({ delay = 0, startY = 20 }) => {
   const pathVariants = {

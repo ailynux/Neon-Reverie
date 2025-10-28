@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import './SpiderWeb.css';
+import '../styles/components/SpiderWeb.css';
 
 const SpiderWeb = ({ position = 'top-left' }) => {
   return (

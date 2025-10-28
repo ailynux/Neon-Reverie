@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import './MatrixRain.css';
+import '../styles/components/MatrixRain.css';
 
 const MatrixRain = () => {
   const canvasRef = useRef(null);

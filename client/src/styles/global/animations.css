@@ -1,0 +1,185 @@
+/* ========================================
+   REUSABLE ANIMATIONS
+   Common animations used across components
+   ======================================== */
+
+/* === GLOW EFFECTS === */
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: brightness(1);
+    text-shadow: var(--glow-purple);
+  }
+  50% {
+    filter: brightness(1.3);
+    text-shadow: var(--glow-purple), var(--glow-purple);
+  }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
+
+/* === FLOAT ANIMATIONS === */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* === ROTATION === */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === SHAKE EFFECTS === */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes screen-shake {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-5px, -5px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(5px, 5px) rotate(1deg);
+  }
+  30% {
+    transform: translate(-5px, 5px) rotate(-1deg);
+  }
+  40% {
+    transform: translate(5px, -5px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-5px, -5px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(5px, 5px) rotate(1deg);
+  }
+  70% {
+    transform: translate(-5px, 5px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(5px, -5px) rotate(1deg);
+  }
+  90% {
+    transform: translate(-5px, -5px) rotate(-1deg);
+  }
+}
+
+/* === FADE ANIMATIONS === */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* === SLIDE ANIMATIONS === */
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === UTILITY CLASSES === */
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 4s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* === GLOW TEXT CLASSES === */
+.glow-purple {
+  color: var(--soft-purple);
+  text-shadow: var(--glow-purple);
+}
+
+.glow-orange {
+  color: var(--soft-orange);
+  text-shadow: var(--glow-orange);
+}
+
+.glow-cyan {
+  color: var(--soft-cyan);
+  text-shadow: var(--glow-cyan);
+}
+

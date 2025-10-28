@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './CursorTrail.css';
+import '../styles/components/CursorTrail.css';
 
 const CursorTrail = () => {
   const [trails, setTrails] = useState([]);
