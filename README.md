@@ -1,21 +1,24 @@
-# 🎃👻 NEON REVERIE - Haunted Countdown Dashboard 👻🎃
 
 <div align="center">
-
+  
+# Halloween Countdown Timer 
+  
 ![Halloween](https://img.shields.io/badge/Halloween-2025-orange?style=for-the-badge&logo=ghost)
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react)
 ![C#](https://img.shields.io/badge/C%23-.NET%208-512BD4?style=for-the-badge&logo=dotnet)
 ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite)
 
-**A dark cyber-horror Halloween countdown experience with neon aesthetics** ✨
+**A dark cyber-horror Halloween countdown experience with neon aesthetics** 
 
-*Where retro haunted terminals meet modern web magic* 🔮
+*Made by ailynux* 
+
+<img width="1280" height="710" alt="image" src="https://github.com/user-attachments/assets/c11dca8e-87e5-4e47-8514-19f507e4879f" />
 
 </div>
 
 ---
 
-## 🌙 About
+## About
 
 **Neon Reverie** is a spooky-cool Halloween countdown dashboard that combines:
 - 🎃 **Real-time countdown** to October 31st with dynamic theming
@@ -28,7 +31,7 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
 
 ---
 
-## ✨ Features
+## Features
 
 ### 🕐 **Haunted Countdown Timer**
 - Live countdown showing **days, hours, minutes, and seconds** until Halloween
@@ -38,29 +41,29 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
   - 🌆 **Dusk** (3-10 days)
   - 🌙 **Midnight** (< 3 days) - with pulsing effects!
 
-### 🔮 **Summon Spirits**
+### **Summon Spirits**
 - Click the **"Summon Spirits"** button to fetch random omens from the API
 - Each omen appears with **glowing neon animations**
 - **Screen shake effect** when summoning spirits for extra drama!
 - **Spooky sound effects** using Web Audio API (toggleable)
 - Omens include messages like:
-  - *"💀 The terminal whispers your name..."*
-  - *"🎃 The pumpkin glows with hidden bugs."*
-  - *"👻 Your console flickers — but you didn't press run."*
+  - *"The terminal whispers your name..."*
+  - *"The pumpkin glows with hidden bugs."*
+  - *"Your console flickers — but you didn't press run."*
 
-### 👁️ **Spirits Encountered Collection**
+### **Spirits Encountered Collection**
 - All summoned spirits are **automatically saved** to localStorage
 - View your collection of encountered omens
 - Track how many spirits you've discovered
 - Clear your collection to start fresh
 
-### 📚 **Spooky Facts Ticker**
+### **Spooky Facts Ticker**
 - Rotating carousel of **Halloween and tech facts**
 - Auto-advances every 8 seconds
 - Includes fun trivia about coding history and Halloween traditions
 - Beautiful animated transitions
 
-### ⚙️ **Interactive Effects Toggle Panel**
+### **Interactive Effects Toggle Panel**
 - **Toggle effects on/off** in real-time:
   - ✨ **Cursor Trail** - Glowing neon particles follow your mouse
   - 🌧️ **Matrix Rain** - Falling code effect with Halloween characters
@@ -87,18 +90,18 @@ The vibe: **Dark. Glowing. Retro-futuristic. Spooky.**
 ## 🚀 Tech Stack
 
 ### **Frontend** (`/client`)
-- ⚛️ **React 18.2** - Modern UI library
-- ⚡ **Vite 5.0** - Lightning-fast build tool
-- 🎬 **Framer Motion 10** - Smooth animations & interactive effects
-- 🎨 **CSS3** - Custom neon styling with keyframe animations
-- 💾 **localStorage** - Client-side spirit collection & preferences
-- 🔊 **Web Audio API** - Synthesized sound effects
-- 🎨 **Canvas API** - Matrix rain effect rendering
+- **React 18.2** - Modern UI library
+- **Vite 5.0** - Lightning-fast build tool
+- **Framer Motion 10** - Smooth animations & interactive effects
+- **CSS3** - Custom neon styling with keyframe animations
+- **localStorage** - Client-side spirit collection & preferences
+- **Web Audio API** - Synthesized sound effects
+- **Canvas API** - Matrix rain effect rendering
 
 ### **Backend** (`/server`)
-- 🔷 **C# .NET 8** - Web API
-- 🌐 **ASP.NET Core** - RESTful API framework
-- 🔄 **CORS enabled** - For React frontend communication
+- **C# .NET 8** - Web API
+- **ASP.NET Core** - RESTful API framework
+- **CORS enabled** - For React frontend communication
 
 ---
 
@@ -155,7 +158,7 @@ Navigate to **http://localhost:5173** and experience the haunted dashboard! 👻
 
 ---
 
-## 🎮 Usage
+## Usage
 
 1. **Watch the Countdown** - See how much time remains until Halloween
 2. **Read Spooky Facts** - Learn fun Halloween and tech trivia
@@ -297,7 +300,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🙏 Credits
+## Credits
 
 - **Fonts**: [Creepster](https://fonts.google.com/specimen/Creepster) & [Space Mono](https://fonts.google.com/specimen/Space+Mono) from Google Fonts
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
@@ -309,42 +312,22 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ### 👻 **Made with 💜 and Dark Magic** 👻
 
-*Happy Halloween! May your code be bug-free and your spirits be high* 🔮
+*Happy Halloween! May your code be bug-free and your spirits be high*
 
-**⭐ Star this repo if you like spooky code! ⭐**
+**⭐ Star this repo if you liked the spooky code! ⭐**
 
 </div>
 
 ---
 
-## 🔮 Screenshots
+## Screenshots
 
 ### Main Dashboard
-![Dashboard Preview](https://via.placeholder.com/800x400/0a0a0f/b026ff?text=Neon+Reverie+Dashboard)
+<img width="1280" height="710" alt="image" src="https://github.com/user-attachments/assets/216f2b63-2bc4-4671-9259-e503b8320aa5" />
 
 ### Spirit Summoning
-![Spirit Summon](https://via.placeholder.com/800x400/0a0a0f/ff6b35?text=Summon+Spirits)
-
-### Collection View
-![Collection](https://via.placeholder.com/800x400/0a0a0f/00ffff?text=Spirits+Encountered)
+<img width="1280" height="705" alt="image" src="https://github.com/user-attachments/assets/d9dbeead-adb3-426c-87f7-59a23601497f" />
 
 ---
 
-## 🚀 Quick Start Commands
-
-```bash
-# Backend (Terminal 1)
-cd server
-dotnet run
-
-# Frontend (Terminal 2)
-cd client
-npm install
-npm run dev
-```
-
-**Then open:** http://localhost:5173 🎃
-
----
-
-*Built for Halloween 2025 with React, C#, and a touch of the supernatural* ✨👻✨
+*Built for Halloween 2025 with React, C#, and a touch of the supernatural*
